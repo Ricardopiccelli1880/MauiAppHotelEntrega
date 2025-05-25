@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:sys="clr-namespace:System;assembly=netstandard"
+    x:Class="MauiAppHotel1.MainPage"
+    Title="Cálculo da Diária"
+    BackgroundColor="White">
+
+    <VerticalStackLayout Spacing="15" Padding="20">
+
+        <Label
+            Text="Cálculo da Diária"
+            FontSize="32"
+            FontAttributes="Bold"
+            TextColor="Purple"
+            HorizontalOptions="Center" />
+
+        <HorizontalStackLayout
+            HorizontalOptions="Center"
+            Spacing="20"
+            VerticalOptions="Center">
+
+            <VerticalStackLayout>
+                <Label Text="Adultos:" />
+                <HorizontalStackLayout Spacing="10">
+                    <Button
+                        x:Name="BtnAdultosMinus"
+                        Text="-"
+                        WidthRequest="40"
+                        Clicked="OnAdultosMinusClicked" />
+                    <Label
+                        x:Name="LabelAdultos"
+                        Text="0"
+                        WidthRequest="40"
+                        HorizontalTextAlignment="Center"
+                        VerticalTextAlignment="Center" />
+                    <Button
+                        x:Name="BtnAdultosPlus"
+                        Text="+"
+                        WidthRequest="40"
+                        Clicked="OnAdultosPlusClicked" />
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout>
+                <Label Text="Crianças:" />
+                <HorizontalStackLayout Spacing="10">
+                    <Button
+                        x:Name="BtnCriancasMinus"
+                        Text="-"
+                        WidthRequest="40"
+                        Clicked="OnCriancasMinusClicked" />
+                    <Label
+                        x:Name="LabelCriancas"
+                        Text="0"
+                        WidthRequest="40"
+                        HorizontalTextAlignment="Center"
+                        VerticalTextAlignment="Center" />
+                    <Button
+                        x:Name="BtnCriancasPlus"
+                        Text="+"
+                        WidthRequest="40"
+                        Clicked="OnCriancasPlusClicked" />
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </HorizontalStackLayout>
+
+        <Label Text="ESCOLHA SUA SUÍTE" TextColor="Purple" FontAttributes="Bold" />
+        <Picker
+            x:Name="PickerSuite"
+            Title="Selecione sua Acomodação">
+            <Picker.Items>
+                <x:String>Suíte Simples</x:String>
+                <x:String>Suíte Luxo</x:String>
+                <x:String>Suíte Master</x:String>
+            </Picker.Items>
+        </Picker>
+
+        <Label Text="PERÍODO DA ESTADIA" TextColor="Purple" FontAttributes="Bold" />
+
+        <HorizontalStackLayout Spacing="15">
+            <VerticalStackLayout>
+                <Label Text="Check-in:" />
+                <DatePicker
+                    x:Name="DatePickerCheckIn"
+                    Date="{x:Static sys:DateTime.Today}"
+                    MinimumDate="{x:Static sys:DateTime.Today}" />
+            </VerticalStackLayout>
+            <VerticalStackLayout>
+                <Label Text="Check-out:" />
+                <DatePicker
+                    x:Name="DatePickerCheckOut"
+                    Date="{x:Static sys:DateTime.Today}"
+                    MinimumDate="{x:Static sys:DateTime.Today}" />
+            </VerticalStackLayout>
+        </HorizontalStackLayout>
+
+        <Button
+            Text="Avançar"
+            BackgroundColor="Purple"
+            TextColor="White"
+            Clicked="OnAvancarClicked" />
+        <Button
+            Text="Sobre"
+            BackgroundColor="Purple"
+            TextColor="White"
+            Clicked="OnSobreClicked" />
+
+    </VerticalStackLayout>
+
+</ContentPage>
